@@ -23,6 +23,9 @@ class UI {
       productList.appendChild(element);
    }
 
+   resetForm(){
+      document.querySelector('#product__form').reset();
+   }
    deleteProduct(){
 
    }
@@ -41,6 +44,7 @@ document.querySelector('#product__form').addEventListener('submit', (e)=>{
    const ui= new UI();
 
    ui.addProduct(product)
+   ui.resetForm();
 
    e.preventDefault()
 })
