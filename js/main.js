@@ -17,7 +17,7 @@ class UI {
                <strong>Product Name</strong>: ${product.name}
                <strong>Product Price</strong>: ${product.price}
                <strong>Product Year</strong>: ${product.year}
-            </div>
+               <a href="#" class="btn btn-danger" name="delete">Delete</a>
          </div>
       `
       productList.appendChild(element);
@@ -26,8 +26,10 @@ class UI {
    resetForm(){
       document.querySelector('#product__form').reset();
    }
-   deleteProduct(){
-
+   deleteProduct(e){
+      if(e.name === 'delete'){
+         e.parentElement.parentElement.parentElement.remove();
+      }
    }
 
    showMessage(){
@@ -49,3 +51,7 @@ document.querySelector('#product__form').addEventListener('submit', (e)=>{
    e.preventDefault()
 })
 
+document.querySelector('#product-list').addEventListener('click', (e) =>{
+  const ui = new UI();
+  ui.deleteProduct(e.target);
+})
