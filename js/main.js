@@ -56,6 +56,11 @@ document.querySelector('#product__form').addEventListener('submit', (e)=>{
    const product = new Product(name, price, year);
    const ui= new UI();
 
+   //form validation 
+   if(name === '' || price === '' || year === ''){
+     return ui.showMessage('Complete Fields Please', 'danger');
+   }
+
    ui.addProduct(product)
    ui.resetForm();
    ui.showMessage('Product Added Successfully','success');
